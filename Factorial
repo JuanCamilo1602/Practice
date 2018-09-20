@@ -1,0 +1,28 @@
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+/**
+ * 
+ * @author Juan Camilo Pabon Pardo
+ *
+ */
+public class Factorial{
+	public static int factorial(int n)
+	{
+	int result = 1 ;
+	for ( int i = 1; i <= n; i ++ )
+	result = result * i ;
+	return result ;
+	}
+	public static void main(String args[]){
+		
+		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+		
+		try {
+		bw.write(factorial(5));
+		bw.newLine();
+		bw.flush();
+
+	}catch(Exception ex) {}
+	}
+}
+
