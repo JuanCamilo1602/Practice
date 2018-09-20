@@ -1,0 +1,28 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+/**
+ * 
+ * @author Juan Camilo Pabon Pardo
+ *
+ */
+	public class Pascal//class of code called pascal
+	{
+		public static long Pascal (int num, int j) //create variable num and variable j
+		{
+		
+			if (j == 0 || j == num) return 1;// if j equals to 0 or j equals num  ,return 1
+			else return Pascal(num-1,j-1) + Pascal(num-1,j);//return variable pascal 
+		}
+		public static void main(String args[]) throws IOException
+		{
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter( System.out ));
+	for(int x=0; x< 20; x++)//for variable x equal to 0, and x smaller than 20, x increased
+	{
+	for(int a=0; a <=x; a++)// for variable a equal to 0 and smaller or equal than variable x , a increased
+		bw.write(Pascal(x,a)+"");//print the pascal triangle
+		bw.newLine();
+		bw.flush();
+		}
+	}
+}
