@@ -1,0 +1,36 @@
+import  java.io.*;
+/**
+ * 
+ * @author Juan Camilo Pabon Pardo
+ *
+ */
+public class SubString { //class of code
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        String string; //create variable String  called string
+        char[]text; // create array called char name Text
+        char charac; // create char called charac
+        int counter=0; //create int counter
+        bw.write("Type the text"); // type the text to count strings 
+        bw.newLine(); 
+        bw.flush();
+        
+        string=br.readLine();// choose the string and asigned object br then call readline		
+       	text = string.toCharArray(); //call array called text and asigned string 
+        for(int i = 0; i < text.length; i++ ){ // cycle for executed in 0 to array text
+            charac=text[i]; // choose charac and asigned array text [i]
+            for(int a = 0; a< text.length;a++ ){//cycle for executed in 0 to array text 
+                if(text[a]==charac){ // depending position variable a compared character in this position with array text and compared variable charac
+                   counter++; //create variable counter do increase
+                }
+            }	
+        bw.write(text[i]+" "+counter);// output message put array text []i and + variable counter
+        bw.newLine();//message space
+        counter=0;// variable counter equal to 0
+        bw.flush();//print bw.write
+        }
+    } 
+}
