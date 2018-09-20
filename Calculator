@@ -1,0 +1,174 @@
+import java.io.*;
+/**
+ * 
+ * @author Juan Camilo Pabon Pardo
+ *
+ */
+public class Calculator {
+	public static int potency(int num1, int base) {
+		double result;
+		result = (double)Math.pow(base,num1);
+		return base;
+	}
+	
+	public static int multi(int num1,int num2) {
+		int result;
+		if(num2 ==1) {
+			return num1;
+		}else {
+			result = num1+multi(num1,num2-1);
+		}
+		return result;
+		
+	}
+	public static void main (String [] args) {
+		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+		double num, num1, num2, add, subtra, multi,divi, potency,root,mod;
+		char option=0;
+		try {
+			bw.write("Type the operation to be performed");
+			bw.newLine();
+			bw.write("1. Addition");
+			bw.newLine();
+			bw.write("2. Subtraction");
+			bw.newLine();
+			bw.write("3. Multiplication");
+			bw.newLine();
+			bw.write("4. Division");
+			bw.newLine();
+			bw.write("5. Potency");
+			bw.newLine();
+			bw.write("6. Root");
+			bw.newLine();
+			bw.write("7. Mod");
+			bw.newLine();
+			bw.write("Type the number to operation");
+			num=Integer.parseInt(br.readLine());
+			bw.newLine();
+			bw.flush();
+				
+			switch (option) {
+			
+			case 1:
+				 {
+					 bw.write("Number 1");
+						num1 = Integer.parseInt(br.readLine());
+						bw.newLine();
+						bw.flush();
+						bw.write("Number 2");
+						num2 = Integer.parseInt(br.readLine());
+						bw.newLine();
+						bw.flush();
+					add = num1 + num2;
+					bw.write("The addition is :" +add);
+					bw.newLine();
+					bw.flush();
+					}
+					break;
+					case 2:
+						 {
+							 bw.write("Number 1");
+								num1 = Integer.parseInt(br.readLine());
+								bw.newLine();
+								bw.flush();
+								bw.write("Number 2");
+								num2 = Integer.parseInt(br.readLine());
+								bw.newLine();
+								bw.flush();
+							subtra = num1 - num2;
+							bw.write("The Subtraction is :"+subtra);
+							bw.newLine();
+							bw.flush();
+							}
+							break;
+							case 3:
+								 {
+									 bw.write("Number 1");
+										num1 = Integer.parseInt(br.readLine());
+										bw.newLine();
+										bw.flush();
+										bw.write("Number 2");
+										num2 = Integer.parseInt(br.readLine());
+										bw.newLine();
+										bw.flush();
+									bw.write("The Multiplication is:"+ multi((int) num1,(int)num2));
+									bw.newLine();
+									bw.flush();
+									}
+									break;
+									case 4:
+										{
+											bw.write("Number 1");
+											num1 = Integer.parseInt(br.readLine());
+											bw.newLine();
+											bw.flush();
+											bw.write("Number 2");
+											num2 = Integer.parseInt(br.readLine());
+											bw.newLine();
+											bw.flush();
+											divi = num1/num2;
+											bw.write("The Division is:"+divi);
+											bw.newLine();
+											bw.flush();
+											}
+											break;
+											case 5:
+												{
+													double base;
+													bw.write("Type base");
+													base = Integer.parseInt(br.readLine());
+													bw.newLine();
+													bw.flush();
+													bw.write("Type number");
+													num1 = Integer.parseInt(br.readLine());
+													bw.newLine();
+													bw.flush();
+													bw.write("The Potency is :"+Math.pow(base,num1));
+													bw.newLine();
+													bw.flush();
+													}
+													break;
+													case  6:
+														{
+															
+															bw.write("Type number 1");
+															num1 = Integer.parseInt(br.readLine());
+															bw.newLine();
+															bw.flush();
+															root = (double) Math.sqrt(num1);
+																	bw.write("The Root of number1 is :"+root);
+																	bw.newLine();
+																	bw.write("Type number 2");;
+																	num2 = Integer.parseInt(br.readLine());
+																	bw.newLine();
+																	bw.flush();
+																	root =(double) Math.sqrt(num2);
+														}
+																	break;
+																	case 7:
+																		 {
+																			 bw.write("Number 1");
+																				num1 = Integer.parseInt(br.readLine());
+																				bw.newLine();
+																				bw.flush();
+																				bw.write("Number 2");
+																				num2 = Integer.parseInt(br.readLine());
+																				bw.newLine();
+																				bw.flush();
+																			mod = num1 % num2;
+																			bw.write("The Mod is : "+mod);
+																			bw.newLine();
+																			bw.flush();
+																		}
+																			break;
+																
+			
+				}			
+			} catch(Exception ex) {
+			
+		}			
+	}
+}
+
+
