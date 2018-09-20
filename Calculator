@@ -5,13 +5,13 @@ import java.io.*;
  *
  */
 public class Calculator {
-	public static int potency(int num1, int base) {
+	public static int potency(int num1, int base) {//create recursivity to potency
 		double result;
 		result = (double)Math.pow(base,num1);
 		return base;
 	}
 	
-	public static int multi(int num1,int num2) {
+	public static int multi(int num1,int num2) {//create recursivity to multiplication
 		int result;
 		if(num2 ==1) {
 			return num1;
@@ -24,10 +24,10 @@ public class Calculator {
 	public static void main (String [] args) {
 		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
-		double num, num1, num2, add, subtra, multi,divi, potency,root,mod;
-		char option=0;
+		double num, num1, num2, add, subtra, multi,divi, potency,root,mod;// create variables
+		char option=0;// create char option to operations
 		try {
-			bw.write("Type the operation to be performed");
+			bw.write("Type the operation to be performed");//print operation to be performed
 			bw.newLine();
 			bw.write("1. Addition");
 			bw.newLine();
@@ -43,16 +43,16 @@ public class Calculator {
 			bw.newLine();
 			bw.write("7. Mod");
 			bw.newLine();
-			bw.write("Type the number to operation");
+			bw.write("Type the number to operation");//print number to  operation be performed
 			num=Integer.parseInt(br.readLine());
 			bw.newLine();
 			bw.flush();
 				
-			switch (option) {
+			switch (option) {//create switch case to option 
 			
 			case 1:
 				 {
-					 bw.write("Number 1");
+					 bw.write("Number 1");//put number to operate
 						num1 = Integer.parseInt(br.readLine());
 						bw.newLine();
 						bw.flush();
@@ -61,7 +61,7 @@ public class Calculator {
 						bw.newLine();
 						bw.flush();
 					add = num1 + num2;
-					bw.write("The addition is :" +add);
+					bw.write("The addition is :" +add);// print the addition of numbers
 					bw.newLine();
 					bw.flush();
 					}
@@ -76,7 +76,7 @@ public class Calculator {
 								num2 = Integer.parseInt(br.readLine());
 								bw.newLine();
 								bw.flush();
-							subtra = num1 - num2;
+							subtra = num1 - num2;//print the subtraction of numbers
 							bw.write("The Subtraction is :"+subtra);
 							bw.newLine();
 							bw.flush();
@@ -92,7 +92,7 @@ public class Calculator {
 										num2 = Integer.parseInt(br.readLine());
 										bw.newLine();
 										bw.flush();
-									bw.write("The Multiplication is:"+ multi((int) num1,(int)num2));
+									bw.write("The Multiplication is:"+ multi((int) num1,(int)num2));//print the multiplication recursive
 									bw.newLine();
 									bw.flush();
 									}
@@ -107,7 +107,7 @@ public class Calculator {
 											num2 = Integer.parseInt(br.readLine());
 											bw.newLine();
 											bw.flush();
-											divi = num1/num2;
+											divi = num1/num2;//print division of numbers
 											bw.write("The Division is:"+divi);
 											bw.newLine();
 											bw.flush();
@@ -124,7 +124,7 @@ public class Calculator {
 													num1 = Integer.parseInt(br.readLine());
 													bw.newLine();
 													bw.flush();
-													bw.write("The Potency is :"+Math.pow(base,num1));
+													bw.write("The Potency is :"+Math.pow(base,num1));//print potency f numbers
 													bw.newLine();
 													bw.flush();
 													}
