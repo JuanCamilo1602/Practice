@@ -6,67 +6,89 @@ import java.io.*;
  */
 public class Calculator {
 	public static int potency(int num1, int base) {//create recursivity to potency
-		double result;
-		result = (double)Math.pow(base,num1);
-		return base;
+		if(base ==1) {
+			return num1;
+		}else
+			return multi(num1,potency(num1, base-1));
 	}
 	
 	public static int multi(int num1,int num2) {//create recursivity to multiplication
-		int result;
+		
 		if(num2 ==1) {
 			return num1;
 		}else {
-			result = num1+multi(num1,num2-1);
+			return num1 + multi(num1, num2 -1);
+		}	
+	}
+	public static int add (int num1, int num2) {
+		return num1+num2;
+	}
+	public static int subtra(int num1, int num2) {
+		return num1 - num2;
+	}
+	public static double division (int num1, int num2) {
+		if (num2 ==0) {
+			return Double.NaN;
+		}else {
+			return num1/(num2*1.0);
 		}
-		return result;
-		
+	}
+	public static double root(int num) {
+		return Math.sqrt(num);
+	}
+	public static int mod (int num1, int num2) {
+		if(num1<num2) {
+			return num1;
+		}else {
+			return mod(num1-num2,num2); 
+		}
 	}
 	public static void main (String [] args) {
 		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
-		double num, num1, num2, add, subtra, multi,divi, potency,root,mod;// create variables
+		int num,num1, num2;// create variables
 		char option=0;// create char option to operations
 		try {
-			bw.write("Type the operation to be performed");//print operation to be performed
-			bw.newLine();
-			bw.write("1. Addition");
-			bw.newLine();
-			bw.write("2. Subtraction");
-			bw.newLine();
-			bw.write("3. Multiplication");
-			bw.newLine();
-			bw.write("4. Division");
-			bw.newLine();
-			bw.write("5. Potency");
-			bw.newLine();
-			bw.write("6. Root");
-			bw.newLine();
-			bw.write("7. Mod");
-			bw.newLine();
 			bw.write("Type the number to operation");//print number to  operation be performed
 			num=Integer.parseInt(br.readLine());
 			bw.newLine();
 			bw.flush();
+			bw.write("1. Addition");
+			bw.newLine();
+			bw.flush();
+			bw.write("2. Subtraction");
+			bw.newLine();
+			bw.flush();
+			bw.write("3. Multiplication");
+			bw.newLine();
+			bw.flush();
+			bw.write("4. Division");
+			bw.newLine();
+			bw.flush();
+			bw.write("5. Potency");
+			bw.newLine();
+			bw.flush();
+			bw.write("6. Root");
+			bw.newLine();
+			bw.flush();
+			bw.write("7. Mod");
+			bw.newLine();
+			bw.flush();
 				
 			switch (option) {//create switch case to option 
-			
-			case 1:
+			case 1://addition
 				 {
 					 bw.write("Number 1");//put number to operate
-						num1 = Integer.parseInt(br.readLine());
-						bw.newLine();
+					 bw.flush();	
+					  num1 = Integer.parseInt(br.readLine());									
+					bw.write("Number 2");
+						 num2 = Integer.parseInt(br.readLine());
 						bw.flush();
-						bw.write("Number 2");
-						num2 = Integer.parseInt(br.readLine());
-						bw.newLine();
-						bw.flush();
-					add = num1 + num2;
-					bw.write("The addition is :" +add);// print the addition of numbers
-					bw.newLine();
+					bw.write("The addition is :" +add(num1, num2));// print the addition of numbers
 					bw.flush();
 					}
 					break;
-					case 2:
+					case 2://subtraction
 						 {
 							 bw.write("Number 1");
 								num1 = Integer.parseInt(br.readLine());
@@ -75,14 +97,13 @@ public class Calculator {
 								bw.write("Number 2");
 								num2 = Integer.parseInt(br.readLine());
 								bw.newLine();
-								bw.flush();
-							subtra = num1 - num2;//print the subtraction of numbers
-							bw.write("The Subtraction is :"+subtra);
+								bw.flush();						
+							bw.write("The Subtraction is :"+ subtra( num1,num2));//print the subtraction of numbers
 							bw.newLine();
 							bw.flush();
 							}
 							break;
-							case 3:
+							case 3://multiplication
 								 {
 									 bw.write("Number 1");
 										num1 = Integer.parseInt(br.readLine());
@@ -92,12 +113,12 @@ public class Calculator {
 										num2 = Integer.parseInt(br.readLine());
 										bw.newLine();
 										bw.flush();
-									bw.write("The Multiplication is:"+ multi((int) num1,(int)num2));//print the multiplication recursive
+									bw.write("The Multiplication is:"+ multi((int)num1, (int)num2 -1));//print the multiplication recursive
 									bw.newLine();
 									bw.flush();
 									}
 									break;
-									case 4:
+									case 4://division
 										{
 											bw.write("Number 1");
 											num1 = Integer.parseInt(br.readLine());
@@ -107,13 +128,12 @@ public class Calculator {
 											num2 = Integer.parseInt(br.readLine());
 											bw.newLine();
 											bw.flush();
-											divi = num1/num2;//print division of numbers
-											bw.write("The Division is:"+divi);
+											bw.write("The Division is:"+division(num1,num2) );
 											bw.newLine();
 											bw.flush();
 											}
 											break;
-											case 5:
+											case 5://potency
 												{
 													double base;
 													bw.write("Type base");
@@ -124,51 +144,26 @@ public class Calculator {
 													num1 = Integer.parseInt(br.readLine());
 													bw.newLine();
 													bw.flush();
-													bw.write("The Potency is :"+Math.pow(base,num1));//print potency f numbers
+													bw.write("The Potency is :"+multi(num1,potency((int)num1,(int)base-1)));//print potency f numbers
 													bw.newLine();
 													bw.flush();
 													}
 													break;
-													case  6:
+													case  6://root
 														{
 															
 															bw.write("Type number 1");
 															num1 = Integer.parseInt(br.readLine());
 															bw.newLine();
 															bw.flush();
-															root = (double) Math.sqrt(num1);
-																	bw.write("The Root of number1 is :"+root);
-																	bw.newLine();
-																	bw.write("Type number 2");;
-																	num2 = Integer.parseInt(br.readLine());
+																	bw.write("The Root of number1 is :"+Math.sqrt(num));
 																	bw.newLine();
 																	bw.flush();
-																	root =(double) Math.sqrt(num2);
 														}
-																	break;
-																	case 7:
-																		 {
-																			 bw.write("Number 1");
-																				num1 = Integer.parseInt(br.readLine());
-																				bw.newLine();
-																				bw.flush();
-																				bw.write("Number 2");
-																				num2 = Integer.parseInt(br.readLine());
-																				bw.newLine();
-																				bw.flush();
-																			mod = num1 % num2;
-																			bw.write("The Mod is : "+mod);
-																			bw.newLine();
-																			bw.flush();
-																		}
-																			break;
-																
-			
+																	break;														
 				}			
 			} catch(Exception ex) {
 			
 		}			
 	}
 }
-
-
