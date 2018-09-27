@@ -44,8 +44,6 @@ public class Practice {
 		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
 		int num1, num2;
-// create variables
-		// create char option to operations
   				
 			try {
                         int option = 1;
@@ -106,7 +104,7 @@ public class Practice {
 										bw.flush();
                                                                                 num2 = Integer.parseInt(br.readLine());
 										
-									bw.write("The Multiplication is:" +multi);//print the multiplication recursive
+									bw.write("The Multiplication is:" +multi(num1, num2));//print the multiplication recursive
 									bw.newLine();
 									bw.flush();
 									}
@@ -114,13 +112,14 @@ public class Practice {
 									case 4://division
 										{
 											bw.write("Number 1");
-											num1 = Integer.parseInt(br.readLine());
 											bw.newLine();
 											bw.flush();
+                                                                                        num1 = Integer.parseInt(br.readLine());
+											
 											bw.write("Number 2");
-											num2 = Integer.parseInt(br.readLine());
 											bw.newLine();
 											bw.flush();
+                                                                                        num2 = Integer.parseInt(br.readLine());
 											bw.write("The Division is:"+division(num1,num2) );
 											bw.newLine();
 											bw.flush();
@@ -128,29 +127,32 @@ public class Practice {
 											break;
 											case 5://potency
 												{
-													double base;
-							bw.write("Type base");
-							base = Integer.parseInt(br.readLine());
-							bw.newLine();
-							bw.flush();
-							bw.write("Type number");
-							num1 = Integer.parseInt(br.readLine());
-							bw.newLine();
-                                                        bw.flush();
-							bw.write("The Potency is :"+multi(num1,potency((int)num1,(int)base-1)));//print potency f numbers
-			bw.newLine();
-				bw.flush();
-				}
-					break;
-						case  6://root
-						{
-															
-							bw.write("Type number 1");
-							num1 = Integer.parseInt(br.readLine());
-							bw.newLine();
-                                                                bw.flush();
-									bw.write("The Root of number1 is :"+Math.sqrt(num));
-									bw.newLine();																bw.flush();
+												int base;
+                                                                                                    bw.write("Type base");
+                                                                                                    bw.newLine();
+                                                                                                    bw.flush();
+                                                                                                    base = Integer.parseInt(br.readLine());
+							
+                                                                                                    bw.write("Type number");
+                                                                                                    bw.newLine();
+                                                                                                    bw.flush();
+                                                                                                     num1 = Integer.parseInt(br.readLine());
+							
+                                                                                                    bw.write("The Potency is :"+potency( num1,base));//print potency f numbers
+                                                                                                    bw.newLine();
+                                                                                                    bw.flush();
+                                                                                            }
+                                                                                     break;
+                                                                                                    case  6://root
+                                                                                                    {
+                                                                                            int num;
+                                                                                             bw.write("Type number");
+                                                                                             bw.newLine();
+                                                                                             bw.flush();
+                                                                                            num = Integer.parseInt(br.readLine());
+							
+                                                                                            bw.write("The Root of number1 is :"+root( num));
+                                                                                            bw.newLine();																bw.flush();
 														}																break;														
 				}			
                         }
